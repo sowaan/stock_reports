@@ -68,7 +68,7 @@ def execute(filters=None):
 						batch_doc = batch_date_map.get(batch, {})
 						row = [
 							item,
-							wh,
+							
 							item_map[item]["item_group"],
 							item_map[item]["item_name"]
 						]
@@ -93,6 +93,7 @@ def execute(filters=None):
 								float_precision,
 							),
 							flt(qty_dict.bal_value, float_precision),
+							wh,
 						]
 						data.append(row)
 
@@ -103,7 +104,7 @@ def execute(filters=None):
 def get_columns(filters, include_arabic_name=False, include_packing=False):
 	columns = [
 		_("Item") + ":Link/Item:100",
-		_("Warehouse") + ":Link/Warehouse:100",
+		
 		_("Item Group") + ":Link/Item Group:100",
 		_("Item Name") + "::120",
 	]
@@ -126,6 +127,7 @@ def get_columns(filters, include_arabic_name=False, include_packing=False):
 		# _("Out Qty") + ":Float:80",
 		_("Cost") + ":Float:120",
 		_("Value") + ":Currency:120",
+		_("Warehouse") + ":Link/Warehouse:100",
 	]
 
 	return columns
